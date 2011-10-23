@@ -1,0 +1,38 @@
+.log {
+    border-bottom: 2px solid #000000;
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+}
+.logheader {
+    border: 2px solid #434363;
+    font-weight: bold;
+    margin-bottom: 1em;
+    margin-top: 2.2em;
+    padding: 1ex;
+    font-size: 1.1em;
+}
+.logsummary {
+    border: 1px solid #000000;
+    font-weight: bold;
+    margin-bottom: 1em;
+    padding: 1ex;
+}
+.logtable {
+    border: 1px dotted #666666;
+    border-collapse: collapse;
+    width: 100%;
+}
+.logtable td, .logtable th {
+    border: 1px dotted #666666;
+    padding: 3px 8px;
+    text-align: left;
+}
+.logtable .passed {
+    background-color: #CCFFCC;
+}
+.logtable .failed, .logtable .uniterror {
+    background-color: #FFCCCC;
+}
+.logtable .nameCell {
+    cursor: pointer;
+}
