@@ -1,8 +1,7 @@
 Test.Unit.Logger.prototype.initialize = function(log, options) {
   var options = options || {};
-  this.subscript = options.subscript || '';
   this.testRunTitle = options.testRunTitle || '';
-  this.log = $(log) || $(log + this.subscript);
+  this.log = $(log);
   if (this.log) {
     this._createLogTable();
   }
@@ -11,13 +10,7 @@ Test.Unit.Logger.prototype.initialize = function(log, options) {
 Test.Unit.Logger.prototype.subscript = 0;
 
 Test.Unit.Logger.prototype._createLogTable = function() {
-  console.log("before")
-  console.log(Test.Unit.Logger.prototype.subscript)
-  console.log(subscript)
-  Test.Unit.Logger.prototype.subscript++;
-  console.log("after")
-  console.log(Test.Unit.Logger.prototype.subscript)
-  console.log(subscript)
+  var subscript = ++Test.Unit.Logger.prototype.subscript;
   var header = this.testRunTitle ? '<div class="logheader">' + this.testRunTitle + '</div>' : '';
   this.log.innerHTML =
     header +
@@ -64,6 +57,6 @@ Test.Unit.Runner.prototype.initialize = function(testcases) {
     }
   }
   this.currentTest = 0;
-  this.logger = new Test.Unit.Logger(this.options.testLog, {subscript: this.options.subscript, testRunTitle: this.options.testRunTitle});
+  this.logger = new Test.Unit.Logger(this.options.testLog, {testRunTitle: this.options.testRunTitle});
   setTimeout(this.runTests.bind(this), 1000);
 };
