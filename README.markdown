@@ -3,8 +3,7 @@ README
 
 Include the extension CSS and JS file
 
-<code>
-
+```HTML
 <script src="js/prototype.js" type="text/javascript"> </script>
 <script src="js/scriptaculous.js" type="text/javascript"> </script>
 <script src="js/unittest.js" type="text/javascript"> </script>
@@ -12,13 +11,11 @@ Include the extension CSS and JS file
 
 <link rel="stylesheet" href="css/test.css" type="text/css"/>
 <link rel="stylesheet" href="css/test-extensions.css" type="text/css"/>
-
-</code>
+```
 
 Add the test class.
 
-<code>
-
+```HTML
 <div id="testlog1"></div>
 <div id="testlog2"></div>
 <div id="testlog3"></div>
@@ -27,7 +24,6 @@ Add the test class.
     new Test.Unit.Runner(Test2, {testLog: 'testlog2', testRunTitle: 'Test 2'});
     new Test.Unit.Runner(Test3, {testLog: 'testlog3', testRunTitle: 'Test 3'});
 </script>
-
-</code>
+```
 
 That's it!
