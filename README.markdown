@@ -27,3 +27,10 @@ Add the test class.
 ```
 
 That's it!
+
+LICENSE
+=======
+
+The source code is released under the MIT license. Please refer LICENSE for more details.
+
+The original source code from script.aculo.us is release under the MIT license. https://github.com/madrobby/scriptaculous/blob/master/MIT-LICENSE

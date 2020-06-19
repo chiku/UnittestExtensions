@@ -1,3 +1,5 @@
+// Based on https://github.com/madrobby/scriptaculous/blob/b0a8422f7f6f2e2e17f0d5ddfef1d9a6f5428472/src/unittest.js#L75-L81
+// Accepts extra argument options
 Test.Unit.Logger.prototype.initialize = function(log, options) {
   var options = options || {};
   this.testRunTitle = options.testRunTitle || '';
@@ -9,6 +11,8 @@ Test.Unit.Logger.prototype.initialize = function(log, options) {
 
 Test.Unit.Logger.prototype.subscript = 0;
 
+// Based on https://github.com/madrobby/scriptaculous/blob/b0a8422f7f6f2e2e17f0d5ddfef1d9a6f5428472/src/unittest.js#L111-L120
+// Adds subscripts to logsummary
 Test.Unit.Logger.prototype._createLogTable = function() {
   var subscript = ++Test.Unit.Logger.prototype.subscript;
   var header = this.testRunTitle ? '<div class="logheader">' + this.testRunTitle + '</div>' : '';
@@ -24,6 +28,7 @@ Test.Unit.Logger.prototype._createLogTable = function() {
     this.loglines = $('loglines' + subscript);
   };
   
+// Based on https://github.com/madrobby/scriptaculous/blob/b0a8422f7f6f2e2e17f0d5ddfef1d9a6f5428472/src/unittest.js#L138-L173
 Test.Unit.Runner.prototype.initialize = function(testcases) {
   this.options = Object.extend({
     testLog: 'testlog'
@@ -48,15 +53,16 @@ Test.Unit.Runner.prototype.initialize = function(testcases) {
       for(var testcase in testcases) {
         if(/^test/.test(testcase)) {
           this.tests.push(
-             new Test.Unit.Testcase(
-               this.options.context ? ' -> ' + this.options.titles[testcase] : testcase, 
-               testcases[testcase], testcases["setup"], testcases["teardown"]
-             ));
+            new Test.Unit.Testcase(
+              this.options.context ? ' -> ' + this.options.titles[testcase] : testcase, 
+              testcases[testcase], testcases["setup"], testcases["teardown"]
+            ));
         }
       }
     }
   }
   this.currentTest = 0;
+  // Extra option passed to new Test.Unit.Logger compared to the original function
   this.logger = new Test.Unit.Logger(this.options.testLog, {testRunTitle: this.options.testRunTitle});
   setTimeout(this.runTests.bind(this), 1000);
 };
